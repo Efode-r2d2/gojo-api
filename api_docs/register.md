@@ -23,7 +23,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** ```json {
+    **Content:** ```javascript {
                 "Status": true,
                 "Message": "User successfully registered." }```
  
