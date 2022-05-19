@@ -1,4 +1,4 @@
-**Register Usdr**
+**Register User**
 ----
   Register a user using name, phone number and password as required parameters and email as an optional paramter.
 
@@ -10,20 +10,20 @@
 
   `POST`
   
-*  **URL Params**
+*  **Form Params**
 
-   **Required:**
- 
-   `name=[string]`
+   ***Required:***
+    - `name=[string]`
+    - `phone_number=[string, min 10 chars]`
+    - `password=[string]`
 
-* **Data Params**
-
-  None
+    ***Optional:***
+    - `email=[string]`
 
 * **Success Response:**
 
-  * **Code:** 200 <br />
-    **Content:** 
+  * ***Code:*** 200 <br />
+    ***Content:*** 
     ```json 
         {
             "Status": true,
@@ -40,16 +40,3 @@
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ error : "You are unauthorized to make this request." }`
-
-* **Sample Call:**
-
-  ```javascript
-    $.ajax({
-      url: "/users/1",
-      dataType: "json",
-      type : "GET",
-      success : function(r) {
-        console.log(r);
-      }
-    });
-  ```
