@@ -2,7 +2,7 @@
 ----
   Register a user using name, phone number and password as required parameters and email as an optional paramter.
 
-* **URL**
+* **API Endpoint**
 
   <a href="">/api/v1/register</a>
 

@@ -5,17 +5,15 @@ namespace App\Http\Controllers\Api\V1\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\Register\StorePostRequest;
+use App\Http\Requests\Register\RegisterPostRequest;
 use App\Models\User;
 
 class RegisterController extends Controller
 {
     /**
-     * Register a user with 
-     * name, phone_phone number and password as required parameters and 
-     * email as optional parameter
+     * Register user
      */
-    public function register(StorePostRequest $request){
+    public function register(RegisterPostRequest $request){
 
         User::create([
             'name'=>$request->input('name'),
