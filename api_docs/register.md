@@ -24,9 +24,11 @@
 
   * **Code:** 200 <br />
     **Content:** 
-    ```javascript {
-                "Status": true,
-                "Message": "User successfully registered." }
+    ```json 
+        {
+            "Status": true,
+            "Message": "User successfully registered." 
+        }
     ```
  
 * **Error Response:**
