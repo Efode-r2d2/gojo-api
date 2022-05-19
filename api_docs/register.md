@@ -44,5 +44,11 @@
 
   OR
 
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "You are unauthorized to make this request." }`
+   * ***Code:*** 422 Validation Failed <br />
+    **Content:** 
+    ```json 
+    {
+        "Status": false,
+        "Error": "The phone number has already been taken."
+    }
+    ```
