@@ -27,15 +27,16 @@ class StorePostRequest extends FormRequest
     {
         return [
             'name'=>'required|string|max:255',
-            'phone_number'=>'required|string|min:10|max:13',
+            'phone_number'=>'required|string|min:10|max:13|unique:users',
+            'email'=>'email',
             'password'=>'required|string',
-            
+
         ];
     }
     /**
      * When validation fails
      */
     protected function failedValidation(Validator $validator) {
-        throw new HttpResponseException(response(["Status"=>false,"Error"=>$validator->errors()->first()]));
+        throw new HttpResponseException(response(["Status"=>false,"Error"=>$validator->errors()->first()], 422));
     }
 }

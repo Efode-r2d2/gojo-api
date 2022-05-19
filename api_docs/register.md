@@ -25,16 +25,22 @@
   * ***Code:*** 200 <br />
     ***Content:*** 
     ```json 
-        {
-            "Status": true,
-            "Message": "User successfully registered." 
-        }
+    {
+        "Status": true,
+        "Message": "User successfully registered." 
+    }
     ```
  
 * **Error Response:**
 
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "User doesn't exist" }`
+  * ***Code:*** 422 Validation Failed <br />
+    **Content:** 
+    ```json 
+    {
+        "Status": false,
+        "Error": "The name field is required."
+    }
+    ```
 
   OR
 
