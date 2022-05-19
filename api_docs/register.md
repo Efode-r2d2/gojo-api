@@ -4,7 +4,7 @@
 
 * **URL**
 
-  /api/v1/register
+  <a>/api/v1/register</a>
 
 * **Method:**
 
