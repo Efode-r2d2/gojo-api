@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\V1\UserController;
+use App\Http\Controllers\Api\V1\UserController;
+use App\Http\Controllers\Api\V1\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('user', UserController::class);
+/*
+ * Routes related to authentication
+*/
+Route::group(['prefix'=>'auth'], function(){
+    Route::post('/register',[RegisterController::class, 'register']);
+});
