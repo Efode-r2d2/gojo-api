@@ -1,20 +1,20 @@
-**Show User**
+**Register Usdr**
 ----
-  Returns json data about a single user.
+  Register a user using name, phone number and password as required parameters and email as an optional paramter.
 
 * **URL**
 
-  /users/:id
+  /api/v1/register
 
 * **Method:**
 
-  `GET`
+  `POST`
   
 *  **URL Params**
 
    **Required:**
  
-   `id=[integer]`
+   `name=[string]`
 
 * **Data Params**
 
@@ -23,7 +23,9 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ id : 12, name : "Michael Bloom" }`
+    **Content:** ```{
+                "Status": true,
+                "Message": "User successfully registered." }```
  
 * **Error Response:**
 
