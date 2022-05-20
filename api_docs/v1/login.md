@@ -43,17 +43,17 @@
     ```json 
     {
         "Status": false,
-        "Error": "The name field is required."
+        "Error": "The phone_number field is required."
     }
     ```
 
   or
 
-   * ***Code:*** 422 Validation Failed <br />
+   * ***Code:*** 401 Invalid login credentials <br />
     **Content:** 
     ```json 
     {
         "Status": false,
-        "Error": "The phone number has already been taken."
+        "Error": "Invalid login credentials!"
     }
     ```

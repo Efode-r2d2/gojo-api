@@ -22,7 +22,7 @@ class LoginController extends Controller
         if(!Auth::attempt($credentials)){
             return response()->json([
                 'Status'=>false,
-                'Error'=>'Invalid login credentials!']);
+                'Error'=>'Invalid login credentials!'], 401);
         }
         /**
          * Return user information and access_token on a successfull login
