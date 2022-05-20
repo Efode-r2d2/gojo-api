@@ -1,4 +1,4 @@
-**Register User**
+**Register**
 ----
   Register a user using name, phone number and password as required parameters and email as an optional paramter.
 
@@ -42,7 +42,7 @@
     }
     ```
 
-  OR
+  or
 
    * ***Code:*** 422 Validation Failed <br />
     **Content:** 
