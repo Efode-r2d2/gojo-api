@@ -45,6 +45,7 @@ class CountryController extends Controller
     public function show($id)
     {
         //
+        return response()->json(['Status'=>true, 'Country'=>Country::find($id)]);
     }
 
     /**
@@ -68,5 +69,7 @@ class CountryController extends Controller
     public function destroy($id)
     {
         //
+        Country::find($id)->delete();
+        return response()->json(['Status'=>true, 'Message'=>'Country successfully deleted.']);
     }
 }
