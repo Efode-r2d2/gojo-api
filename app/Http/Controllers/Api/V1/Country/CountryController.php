@@ -59,6 +59,14 @@ class CountryController extends Controller
     public function update(CountryPutRequest $request, $id)
     {
         //
+        Country::find($id)->update([
+            'country_name'=>$request->input('country_name'),
+            'capital_city'=>$request->input('capital_city'),
+            'telephone_code'=>$request->input('telephone_code'),
+            'country_code'=>$request->input('country_code')
+        ]);
+
+        return response()->json(['Status'=>true, 'Message'=>'Country successfully updated.']);
     }
 
     /**
