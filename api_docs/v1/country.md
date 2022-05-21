@@ -1,3 +1,5 @@
+# Manage Countries
+APIs related to managing country information
 **Register Country**
 ----
   Register a user using name, phone number and password as required parameters and email as an optional paramter.
