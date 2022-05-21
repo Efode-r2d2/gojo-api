@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
+use App\Http\Controllers\Api\V1\Country\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,14 @@ use App\Http\Controllers\Api\V1\Auth\LoginController;
 
 Route::apiResource('user', UserController::class);
 /*
- * Routes related to authentication
+ * API endpoints related to authentication
 */
 Route::group(['prefix'=>'auth'], function(){
     Route::post('/register', [RegisterController::class, 'register']);
     Route::post('/login', [LoginController::class, 'login']);
 });
+/**
+ * API endpoints realted to managing countries
+*/
+Route::apiResource('countries',CountryController::class);
+

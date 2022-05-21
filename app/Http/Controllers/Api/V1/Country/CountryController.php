@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api\V1\Country;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Country;
+use App\Http\Requests\Country\CountryStoreRequest;
 
 class CountryController extends Controller
 {
@@ -14,17 +16,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json(['Status'=>true, 'Countries'=>Country::all()]);
     }
 
     /**
@@ -33,9 +25,15 @@ class CountryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CountryStoreRequest $request)
     {
-        //
+        Country::create([
+            'country_name'=>$request->input('country_name'),
+            'capital_city'=>$request->input('capital_city'),
+            'telephone_code'=>$request->input('telephone_code'),
+            'country_code'=>$request->input('country_code')
+        ]);
+        return response()->json(['Status'=>true, 'Message'=>'Country created successfully.']);
     }
 
     /**
@@ -45,17 +43,6 @@ class CountryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }
