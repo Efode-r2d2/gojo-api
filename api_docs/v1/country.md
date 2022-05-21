@@ -21,7 +21,17 @@ APIs related to managing country information
     ```json 
     {
         "Status": true,
-        "Message": "Country successfully registered." 
+        "Countries": [
+            {
+                "id": 2,
+                "country_name": "Djibouti",
+                "capital_city": "Djibouti",
+                "telephone_code": "252",
+                "country_code": "DJ",
+                "created_at": "2022-05-21T04:04:42.000000Z",
+                "updated_at": "2022-05-21T04:06:09.000000Z"
+            }
+        ]
     }
     ```
 
@@ -44,9 +54,6 @@ APIs related to managing country information
     - `capital_city=[string]`
     - `telephone_code=[string]`
     - `country_code=[string]`
-
-    ***Optional:***
-    - `email=[string]`
 
 * **Success Response:**
 
