@@ -17,4 +17,10 @@ class Country extends Model
         'telephone_code',
         'country_code'
     ];
+    /**
+    * Get regions for the country 
+    */
+    public function regions(){
+        return $this->hasMany(Region::class);
+    }
 }

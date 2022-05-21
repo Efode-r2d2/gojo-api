@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Country\CountryController;
+use App\Http\Controllers\Api\V1\Country\RegionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,10 @@ Route::group(['prefix'=>'auth'], function(){
     Route::post('/login', [LoginController::class, 'login']);
 });
 /**
- * API endpoints realted to managing countries
+ * API endpoints realted to managing countries, regions and cities
 */
-Route::apiResource('countries',CountryController::class);
+Route::apiResources([
+    'countries',CountryController::class,
+    'regions', RegionController::class
+]);
 
