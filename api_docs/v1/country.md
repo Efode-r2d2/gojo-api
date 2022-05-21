@@ -2,9 +2,32 @@
 
 APIs related to managing country information
 
+**List Countries**
+----
+  List all registered countries.
+
+* **API Endpoint**
+
+  <a href="">/api/v1/countries</a>
+
+* **Method:**
+
+  `GET`
+
+* **Success Response:**
+
+  * ***Code:*** 200 <br />
+    ***Content:*** 
+    ```json 
+    {
+        "Status": true,
+        "Message": "Country successfully registered." 
+    }
+    ```
+
 **Register Country**
 ----
-  Register a user using name, phone number and password as required parameters and email as an optional paramter.
+  Register a country using country_name, capital_city, telephone_code and country code as required parameters.
 
 * **API Endpoint**
 
