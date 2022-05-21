@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Http\Requests\Country\CountryStoreRequest;
+use App\Http\Requests\Country\CountryPutRequest;
 
 class CountryController extends Controller
 {
@@ -55,7 +56,7 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CountryPutRequest $request, $id)
     {
         //
     }
