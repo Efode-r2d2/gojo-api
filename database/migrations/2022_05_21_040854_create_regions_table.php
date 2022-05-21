@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('region_name');
             $table->string('region_code');
-            $table->unsignedInteger('country');
+            $table->foreignId('country')->references('id')->on('countries')->onDelete('cascade');
             $table->timestamps();
         });
     }

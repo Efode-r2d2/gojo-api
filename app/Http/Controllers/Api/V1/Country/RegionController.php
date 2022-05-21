@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api\V1\Country;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\Country\RegionPostRequest;
+use App\Http\Requests\Country\RegionPutRequest;
+use App\Models\Region;
 
 class RegionController extends Controller
 {
@@ -12,9 +15,11 @@ class RegionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($country)
     {
-        //
+        // get all regions for a given country
+        $regions = Region::where('country', '=', $country);
+        return response()->json(['Status'=>true,'Regions'=>$regions]);
     }
 
     /**
@@ -23,9 +28,10 @@ class RegionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegionPostRequest $request, $country)
     {
         //
+        
     }
 
     /**

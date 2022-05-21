@@ -9,6 +9,14 @@ class Region extends Model
 {
     use HasFactory;
     /**
+     * Mass assignable attributes
+     */
+    protected $fillabe = [
+        'region_name',
+        'region_code',
+        'country'
+    ];
+    /**
      * Get the country owns the region
      */
     public function country(){
