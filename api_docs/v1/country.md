@@ -8,7 +8,7 @@ APIs related to managing country information
 
 * **API Endpoint**
 
-  <a href="">/api/v1/register</a>
+  <a href="">/api/v1/countries</a>
 
 * **Method:**
 
@@ -17,9 +17,10 @@ APIs related to managing country information
 *  **Form Params**
 
    ***Required:***
-    - `name=[string]`
-    - `phone_number=[string, min 10 chars]`
-    - `password=[string]`
+    - `country_name=[string]`
+    - `capital_city=[string]`
+    - `telephone_code=[string]`
+    - `country_code=[string]`
 
     ***Optional:***
     - `email=[string]`
@@ -31,7 +32,7 @@ APIs related to managing country information
     ```json 
     {
         "Status": true,
-        "Message": "User successfully registered." 
+        "Message": "Country successfully registered." 
     }
     ```
  
@@ -42,7 +43,7 @@ APIs related to managing country information
     ```json 
     {
         "Status": false,
-        "Error": "The name field is required."
+        "Error": "The country_name field is required."
     }
     ```
 
@@ -53,6 +54,6 @@ APIs related to managing country information
     ```json 
     {
         "Status": false,
-        "Error": "The phone number has already been taken."
+        "Error": "The country_name has already been taken."
     }
     ```
