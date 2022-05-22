@@ -153,7 +153,7 @@ APIs related to managing country information.
 
   ```html
     <pre>
-        <span color="red">DELETE</span></html>
+        <span color="red">DELETE</span>
     </pre>
   ```
   
