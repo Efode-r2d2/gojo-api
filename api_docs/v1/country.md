@@ -151,9 +151,8 @@ APIs related to managing country information.
 
 * **Method:**
 
-  ```html
-    <span color="red">DELETE</span>
-  ```
+  <span color="red">DELETE</span>
+  
 
 * **Success Response:**
 
