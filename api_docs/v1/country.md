@@ -151,10 +151,8 @@ APIs related to managing country information.
 
 * **Method:**
 
-  ```html
-    <pre>
-        <span color="red">DELETE</span>
-    </pre>
+  ```diff
+   - Red DELETE
   ```
   
 
