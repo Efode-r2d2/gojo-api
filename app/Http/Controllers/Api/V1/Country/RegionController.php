@@ -18,7 +18,7 @@ class RegionController extends Controller
     public function index($country)
     {
         // get all regions for a given country
-        $regions = Region::where('country', '=', $country);
+        $regions = Region::where('country', '=', $country)->get();
         return response()->json(['Status'=>true,'Regions'=>$regions]);
     }
 
@@ -31,7 +31,15 @@ class RegionController extends Controller
     public function store(RegionPostRequest $request, $country)
     {
         //
-        
+        Region::create([
+            'region_name'=>$request->input('region_name'),
+            'region_code'=>$request->input('region_code'),
+            'country'=>$country
+        ]);
+        return response()->json([
+            'Status'=>true,
+            'Message'=>'Region successfully created.'
+        ]);
     }
 
     /**
@@ -52,9 +60,17 @@ class RegionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RegionPutRequest $request, $id)
     {
         //
+        Region::find($id)->update([
+            'region_name'=>$request->input('region_name'),
+            'region_code'=>$request->input('region_code')
+        ]);
+        return response()->json([
+            'Status'=>true,
+            'Message'=>'Region info successfully updated.'
+        ]);
     }
 
     /**

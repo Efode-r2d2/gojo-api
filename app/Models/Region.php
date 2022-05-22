@@ -11,7 +11,7 @@ class Region extends Model
     /**
      * Mass assignable attributes
      */
-    protected $fillabe = [
+    protected $fillable = [
         'region_name',
         'region_code',
         'country'

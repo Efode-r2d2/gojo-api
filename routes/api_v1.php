@@ -30,8 +30,7 @@ Route::group(['prefix'=>'auth'], function(){
 /**
  * API endpoints realted to managing countries, regions and cities
 */
-Route::apiResources([
-    'countries'=>CountryController::class,
-    'countries.regions'=>RegionController::class
-]);
+Route::apiResource('countries', CountryController::class);
+
+Route::apiResource('countries.regions',RegionController::class)->shallow();
 

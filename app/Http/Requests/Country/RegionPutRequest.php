@@ -3,6 +3,9 @@
 namespace App\Http\Requests\Country;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
+
 
 class RegionPutRequest extends FormRequest
 {
@@ -13,7 +16,7 @@ class RegionPutRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +26,16 @@ class RegionPutRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route('region');
         return [
-            //
+            'region_name'=>'required|string|max:255|unique:regions,region_name,'.$id,
+            'region_code'=>'required|string|max:255|unique:regions,region_code,'.$id
         ];
+    }
+    /**
+     * When validation fails
+     */
+    protected function failedValidation(Validator $validator) {
+        throw new HttpResponseException(response(["Status"=>false,"Error"=>$validator->errors()->first()], 422));
     }
 }

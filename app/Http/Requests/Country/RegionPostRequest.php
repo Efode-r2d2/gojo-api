@@ -26,9 +26,8 @@ class RegionPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'region_name'=>'required|string|max:255',
-            'region_code'=>'required|string|max:255',
-            'country'=>'required|numeric'
+            'region_name'=>'required|string|max:255|unique:regions',
+            'region_code'=>'required|string|max:255|unique:regions'
         ];
     }
     /**
