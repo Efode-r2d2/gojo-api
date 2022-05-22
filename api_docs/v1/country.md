@@ -90,15 +90,15 @@ APIs related to managing country information.
 
 **Update Country**
 ----
-  Register a country using country_name, capital_city, telephone_code and country code as required parameters.
+  Update country information.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries</a>
+  <a href="">/api/v1/countries/{id}</a>
 
 * **Method:**
 
-  `POST`
+  `PUT`
   
 *  **Form Params**
 
@@ -115,7 +115,7 @@ APIs related to managing country information.
     ```json 
     {
         "Status": true,
-        "Message": "Country successfully registered." 
+        "Message": "Country info successfully updated." 
     }
     ```
  
@@ -138,5 +138,30 @@ APIs related to managing country information.
     {
         "Status": false,
         "Error": "The country_name has already been taken."
+    }
+    ```
+  
+**Delete Country**
+----
+  Delete a given country.
+
+* **API Endpoint**
+
+  <a href="">/api/v1/countries/{id}</a>
+
+* **Method:**
+
+  ```html
+    <span color="red">DELETE</span>
+  ```
+
+* **Success Response:**
+
+  * ***Code:*** 200 <br />
+    ***Content:*** 
+    ```json 
+    {
+        "Status": true,
+        "Message": "Country successfully delete." 
     }
     ```

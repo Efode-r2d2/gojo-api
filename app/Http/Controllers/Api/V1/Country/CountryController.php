@@ -66,7 +66,7 @@ class CountryController extends Controller
             'country_code'=>$request->input('country_code')
         ]);
 
-        return response()->json(['Status'=>true, 'Message'=>'Country successfully updated.']);
+        return response()->json(['Status'=>true, 'Message'=>'Country info successfully updated.']);
     }
 
     /**
