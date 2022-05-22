@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Country\CountryController;
 use App\Http\Controllers\Api\V1\Country\RegionController;
+use App\Http\COntrollers\Api\V1\Country\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,12 @@ Route::group(['prefix'=>'auth'], function(){
  * API endpoints realted to managing countries, regions and cities
 */
 Route::apiResource('countries', CountryController::class);
-
+/**
+ * API endpoints related to managing regions of a given country
+ */
 Route::apiResource('countries.regions',RegionController::class)->shallow();
+/**
+ * API endpoints related to managing cities under a given region
+ */
+Route::apiResource('regions.cites', CityController::class)->shallow();
 
