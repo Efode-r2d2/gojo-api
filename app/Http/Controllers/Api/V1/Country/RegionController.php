@@ -51,6 +51,10 @@ class RegionController extends Controller
     public function show($id)
     {
         //
+        return response()->json([
+            'Status'=>true,
+            'Region'=>Region::findOrFail($id)
+        ]);
     }
 
     /**
@@ -82,5 +86,10 @@ class RegionController extends Controller
     public function destroy($id)
     {
         //
+        Region::find($id)->delete();
+        return response()->json([
+            'Status'=>true,
+            'Message'=>'Region deleted successfully.'
+        ]);
     }
 }
