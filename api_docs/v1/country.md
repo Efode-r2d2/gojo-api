@@ -150,8 +150,8 @@ APIs related to managing country information.
   <a href="">/api/v1/countries/{id}</a>
 
 * **Method:**
-
-  <span color="red">DELETE</span>
+<html>
+  <span color="red">DELETE</span></html>
   
 
 * **Success Response:**
