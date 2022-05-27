@@ -25,7 +25,6 @@ APIs related to managing cities.
             {
                 "id": 1,
                 "city_name": "Addis Ababa",
-                "capital_city": "Djibouti",
                 "city_code": "AA",
                 "created_at": "2022-05-21T04:04:42.000000Z",
                 "updated_at": "2022-05-21T04:06:09.000000Z"
