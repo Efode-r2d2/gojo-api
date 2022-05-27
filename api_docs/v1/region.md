@@ -1,14 +1,14 @@
-# Manage Countries
+# Manage Regions
 
-APIs related to managing country information.
+APIs related to managing regions.
 
 **List Countries**
 ----
-  List registered countries.
+  List registered regions.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries</a>
+  <a href="">/api/v1/countries/{country}/regions</a>
 
 * **Method:**
 
