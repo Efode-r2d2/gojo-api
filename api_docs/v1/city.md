@@ -33,9 +33,9 @@ APIs related to managing cities.
     }
     ```
 
-**Register Country**
+**Register City**
 ----
-  Register a city using city_name and city_code as required parameters.
+  Register a city using city_name and city_code as required parameters under a given {region}.
 
 * **API Endpoint**
 
@@ -84,13 +84,13 @@ APIs related to managing cities.
     }
     ```
 
-**Update Country**
+**Update City**
 ----
-  Update country information.
+  Update city information.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries/{id}</a>
+  <a href="">/api/v1/cities/{city}</a>
 
 * **Method:**
 
@@ -99,10 +99,8 @@ APIs related to managing cities.
 *  **Form Params**
 
    ***Required:***
-    - `country_name=[string]`
-    - `capital_city=[string]`
-    - `telephone_code=[string]`
-    - `country_code=[string]`
+    - `city_name=[string]`
+    - `city_code=[string]`
 
 * **Success Response:**
 
@@ -111,7 +109,7 @@ APIs related to managing cities.
     ```json 
     {
         "Status": true,
-        "Message": "Country info successfully updated." 
+        "Message": "City info successfully updated." 
     }
     ```
  
@@ -122,7 +120,7 @@ APIs related to managing cities.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name field is required."
+        "Error": "The city_name field is required."
     }
     ```
 
@@ -133,13 +131,13 @@ APIs related to managing cities.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name has already been taken."
+        "Error": "The city_name has already been taken."
     }
     ```
   
 **Delete Country**
 ----
-  Delete a given country.
+  Delete a given city.
 
 * **API Endpoint**
 
