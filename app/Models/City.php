@@ -11,7 +11,11 @@ class City extends Model
     /**
      * Mass assignables
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'city_name',
+        'city_code',
+        'region'
+    ];
     /**
      * Get the region owns the city
      */

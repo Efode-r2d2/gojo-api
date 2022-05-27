@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Country;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Country\CityPostRequest;
+use App\Models\City;
 
 class CityController extends Controller
 {
@@ -25,8 +26,15 @@ class CityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CityPostRequest $request, $region)
-    {
-        //
+    {   
+        // create city
+        City::create([
+            'city_name'=>$request->input('city_name'),
+            'city_code'=>$request->input('city_code'),
+            'region'=>$region
+        ]);
+        // return success response
+        return response()->json(['Status'=>true, "Message"=>"City registerd successfully"]);
     }
 
     /**
