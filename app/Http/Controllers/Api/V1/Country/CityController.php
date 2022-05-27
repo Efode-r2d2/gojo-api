@@ -14,9 +14,11 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($region)
     {
-        //
+        // return all cities belongs to a given region
+        $cities = City::where('region', '=', $region)->get();
+        return response()->json(['Status'=>true,'Cities'=>$cities]);
     }
 
     /**
