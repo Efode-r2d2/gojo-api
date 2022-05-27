@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
+            $table->string('city_name');
+            $table->foreignId('region')->references('id')->on('regions')->onDelete('cascade');
+            $table->string('city_code');
             $table->timestamps();
         });
     }
