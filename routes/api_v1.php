@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Country\CountryController;
 use App\Http\Controllers\Api\V1\Country\RegionController;
-use App\Http\COntrollers\Api\V1\Country\CityController;
+use App\Http\Controllers\Api\V1\Country\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +39,5 @@ Route::apiResource('countries.regions',RegionController::class)->shallow();
 /**
  * API endpoints related to managing cities under a given region
  */
-Route::apiResource('regions.cites', CityController::class)->shallow();
+Route::apiResource('regions.cities', CityController::class)->shallow();
 
