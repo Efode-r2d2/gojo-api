@@ -12,4 +12,10 @@ class City extends Model
      * Mass assignables
      */
     protected $fillable = [];
+    /**
+     * Get the region owns the city
+     */
+    public function region(){
+        return $this->belongsTo(Region::class);
+    }
 }
