@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Country;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CityPutRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class CityPutRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +25,16 @@ class CityPutRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route('city');
         return [
-            //
+            'city_name'=>'required|string|max:255|unique:cities,city_name,'.$id,
+            'city_code'=>'required|string|max:255|unique:cities,city_code,'.$id
         ];
+    }
+    /**
+     * When validation fails
+     */
+    protected function failedValidation(Validator $validator) {
+        throw new HttpResponseException(response(["Status"=>false,"Error"=>$validator->errors()->first()], 422));
     }
 }

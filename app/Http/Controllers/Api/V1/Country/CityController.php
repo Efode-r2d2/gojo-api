@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Country;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Country\CityPostRequest;
+use App\Http\Requests\Country\CityPutRequest;
 use App\Models\City;
 
 class CityController extends Controller
@@ -57,9 +58,15 @@ class CityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CityPutRequest $request, $city)
     {
-        //
+        //update city info
+        City::find($city)->update([
+            'city_name'=>$request->input('city_name'),
+            'city_code'=>$request->input('city_code')
+        ]);
+        //return success response
+        return response()->json(['Status'=>true, 'Message'=>'City information updated successfully.']);
     }
 
     /**
