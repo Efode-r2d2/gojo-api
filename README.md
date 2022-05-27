@@ -12,4 +12,5 @@ Laravel based backend app designed to simplify home renting process between tena
 ### Address APIs
 - <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/country.md">Manage Countries</a>
 - <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/region.md">Manage Regions</a>
+- <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/region.md">Manage Cities</a>
 
