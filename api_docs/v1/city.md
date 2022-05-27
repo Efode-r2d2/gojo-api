@@ -21,13 +21,12 @@ APIs related to managing cities.
     ```json 
     {
         "Status": true,
-        "Countries": [
+        "Cities": [
             {
-                "id": 2,
-                "country_name": "Djibouti",
+                "id": 1,
+                "city_name": "Addis Ababa",
                 "capital_city": "Djibouti",
-                "telephone_code": "252",
-                "country_code": "DJ",
+                "city_code": "AA",
                 "created_at": "2022-05-21T04:04:42.000000Z",
                 "updated_at": "2022-05-21T04:06:09.000000Z"
             }
@@ -37,11 +36,11 @@ APIs related to managing cities.
 
 **Register Country**
 ----
-  Register a country using country_name, capital_city, telephone_code and country code as required parameters.
+  Register a city using city_name and city_code as required parameters.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries</a>
+  <a href="">/api/v1/regions/{region}/cities</a>
 
 * **Method:**
 
@@ -50,10 +49,8 @@ APIs related to managing cities.
 *  **Form Params**
 
    ***Required:***
-    - `country_name=[string]`
-    - `capital_city=[string]`
-    - `telephone_code=[string]`
-    - `country_code=[string]`
+    - `city_name_name=[string]`
+    - `city_code=[string]`
 
 * **Success Response:**
 
@@ -62,7 +59,7 @@ APIs related to managing cities.
     ```json 
     {
         "Status": true,
-        "Message": "Country successfully registered." 
+        "Message": "City successfully registered." 
     }
     ```
  
@@ -73,7 +70,7 @@ APIs related to managing cities.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name field is required."
+        "Error": "The city_name field is required."
     }
     ```
 
@@ -84,7 +81,7 @@ APIs related to managing cities.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name has already been taken."
+        "Error": "The city_name has already been taken."
     }
     ```
 
