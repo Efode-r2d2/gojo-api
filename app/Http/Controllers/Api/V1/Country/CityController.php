@@ -46,9 +46,10 @@ class CityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($city)
     {
-        //
+        // return details of a given city
+        return response()->json(['Status'=>true, 'City'=>City::find($city)]);
     }
 
     /**
