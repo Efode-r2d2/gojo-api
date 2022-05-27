@@ -76,8 +76,10 @@ class CityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($city)
     {
-        //
+        // delete a given city
+        City::find($city)->delete();
+        return response()->json(['Status'=>true, 'Message'=>'City deleted successfully.']);
     }
 }
