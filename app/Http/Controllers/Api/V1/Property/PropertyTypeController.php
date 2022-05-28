@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api\V1\Property;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\Property\PropertyTypePostRequest;
+use App\Models\PropertyType;
 
 class PropertyTypeController extends Controller
 {
@@ -23,9 +25,19 @@ class PropertyTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PropertyTypePostRequest $request)
     {
-        //
+        /**
+         * Create property type 
+         */
+        PropertyType::create([
+            'property_type_name'=>$request->input('property_type_name'),
+            'property_type_code'=>$request->input('property_type_code')
+        ]);
+        /**
+         * return success response
+         */
+        return response()->json(['Status'=>true, 'Message'=>'Property created successfully']);
     }
 
     /**
