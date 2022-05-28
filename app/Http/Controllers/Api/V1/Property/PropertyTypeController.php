@@ -80,5 +80,7 @@ class PropertyTypeController extends Controller
     public function destroy($id)
     {
         //
+        PropertyType::find($id)->delete();
+        return response()->json(['Status'=>true, 'Message'=>'Property type deleted succefully.']);
     }
 }
