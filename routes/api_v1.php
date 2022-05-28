@@ -36,7 +36,7 @@ Route::apiResource('countries', CountryController::class);
 /**
  * API endpoints related to managing regions of a given country
  */
-Route::apiResource('countries.regions',RegionController::class)->shallow();
+Route::apiResource('countries.regions', RegionController::class)->shallow();
 /**
  * API endpoints related to managing cities under a given region
  */
