@@ -17,6 +17,7 @@ class PropertyTypeController extends Controller
     public function index()
     {
         //
+        return response()->json(['Status'=>true, 'Property_Types'=>PropertyType::all()]);
     }
 
     /**
