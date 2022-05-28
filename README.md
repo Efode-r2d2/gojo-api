@@ -6,11 +6,15 @@ Laravel based backend app designed to simplify home renting process between tena
 - Property Management.
 - Lease Agreement Management
 
-### Authentication APIs
+### Authentication
 - <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/register.md">Register</a>
 - <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/login.md">Login</a>
-### Address APIs
+### Address Management
 - <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/country.md">Manage Countries</a>
 - <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/region.md">Manage Regions</a>
 - <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/city.md">Manage Cities</a>
+
+###  Property Management
+- <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/property_type.md">Manage Property Types</a>
+- <a href="https://github.com/Efode-r2d2/home-app-api/blob/main/api_docs/v1/property.md">Manage Properties</a>
 
