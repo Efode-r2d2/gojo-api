@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Property;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Property\PropertyTypePostRequest;
+use App\Http\Requests\Property\PropertyTypePutRequest;
 use App\Models\PropertyType;
 
 class PropertyTypeController extends Controller
@@ -60,9 +61,14 @@ class PropertyTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PropertyTypePutRequest $request, $id)
     {
         //
+        PropertyType::find($id)->update([
+            'property_type_name'=>$request->input('property_type_name'),
+            'property_type_code'=>$request->input('property_type_code')
+        ]);
+        return response()->json(['Status'=>true, 'Message'=>'Property type successfully updated.']);
     }
 
     /**
