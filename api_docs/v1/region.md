@@ -85,6 +85,37 @@ APIs related to managing regions.
     }
     ```
 
+**Show Region**
+----
+  Delete a given region.
+
+* **API Endpoint**
+
+  <a href="">/api/v1/regions/{id}</a>
+
+* **Method:**
+
+  `GET`
+  
+
+* **Success Response:**
+
+  * ***Code:*** 200 <br />
+    ***Content:*** 
+    ```json 
+    {
+      "Status": true,
+      "Region": {
+          "id": 3,
+          "region_name": "Addis Ababa",
+          "region_code": "9",
+          "country": 2,
+          "created_at": "2022-05-27T18:11:42.000000Z",
+          "updated_at": "2022-05-27T18:11:42.000000Z"
+      }
+    }
+    ```
+
 **Update Region**
 ----
   Update region information.
@@ -156,6 +187,6 @@ APIs related to managing regions.
     ```json 
     {
         "Status": true,
-        "Message": "Region successfully delete." 
+        "Message": "Region successfully deleted." 
     }
     ```
