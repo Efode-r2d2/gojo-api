@@ -88,6 +88,38 @@ APIs related to managing country information.
     }
     ```
 
+**Show Country**
+----
+  Show info of a given country.
+
+* **API Endpoint**
+
+  <a href="">/api/v1/countries/{id}</a>
+
+* **Method:**
+
+  `GET`
+  
+
+* **Success Response:**
+
+  * ***Code:*** 200 <br />
+    ***Content:*** 
+    ```json 
+    {
+      "Status": true,
+      "Country": {
+          "id": 4,
+          "country_name": "Ethiopia",
+          "capital_city": "Addis Ababa",
+          "telephone_code": "251",
+          "country_code": "ET",
+          "created_at": "2022-05-22T09:04:22.000000Z",
+          "updated_at": "2022-05-22T09:04:22.000000Z"
+      }
+    }
+    ```
+
 **Update Country**
 ----
   Update country information.
