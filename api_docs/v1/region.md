@@ -2,7 +2,7 @@
 
 APIs related to managing regions.
 
-**List Countries**
+**List Regions**
 ----
   List registered regions.
 
@@ -21,13 +21,12 @@ APIs related to managing regions.
     ```json 
     {
         "Status": true,
-        "Countries": [
+        "Regions": [
             {
                 "id": 2,
-                "country_name": "Djibouti",
-                "capital_city": "Djibouti",
-                "telephone_code": "252",
-                "country_code": "DJ",
+                "region_name": "Amhara",
+                "region_code": "AM",
+                "country": "1",
                 "created_at": "2022-05-21T04:04:42.000000Z",
                 "updated_at": "2022-05-21T04:06:09.000000Z"
             }
@@ -35,13 +34,13 @@ APIs related to managing regions.
     }
     ```
 
-**Register Country**
+**Register a Region**
 ----
-  Register a country using country_name, capital_city, telephone_code and country code as required parameters.
+  Register a region using region_name and region_code as required form parameters and country as url parameter.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries</a>
+  <a href="">/api/v1/countries/{country}/regions</a>
 
 * **Method:**
 
@@ -50,10 +49,8 @@ APIs related to managing regions.
 *  **Form Params**
 
    ***Required:***
-    - `country_name=[string]`
-    - `capital_city=[string]`
-    - `telephone_code=[string]`
-    - `country_code=[string]`
+    - `region_name=[string]`
+    - `region_code=[string]`
 
 * **Success Response:**
 
@@ -62,7 +59,7 @@ APIs related to managing regions.
     ```json 
     {
         "Status": true,
-        "Message": "Country successfully registered." 
+        "Message": "Region successfully registered." 
     }
     ```
  
@@ -73,7 +70,7 @@ APIs related to managing regions.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name field is required."
+        "Error": "The region_name field is required."
     }
     ```
 
@@ -84,17 +81,17 @@ APIs related to managing regions.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name has already been taken."
+        "Error": "The region_name has already been taken."
     }
     ```
 
-**Update Country**
+**Update Region**
 ----
-  Update country information.
+  Update region information.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries/{id}</a>
+  <a href="">/api/v1/regions/{id}</a>
 
 * **Method:**
 
@@ -103,10 +100,8 @@ APIs related to managing regions.
 *  **Form Params**
 
    ***Required:***
-    - `country_name=[string]`
-    - `capital_city=[string]`
-    - `telephone_code=[string]`
-    - `country_code=[string]`
+    - `region_name=[string]`
+    - `region_code=[string]`
 
 * **Success Response:**
 
@@ -115,7 +110,7 @@ APIs related to managing regions.
     ```json 
     {
         "Status": true,
-        "Message": "Country info successfully updated." 
+        "Message": "Region info successfully updated." 
     }
     ```
  
@@ -126,7 +121,7 @@ APIs related to managing regions.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name field is required."
+        "Error": "The region_name field is required."
     }
     ```
 
@@ -137,17 +132,17 @@ APIs related to managing regions.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name has already been taken."
+        "Error": "The region_name has already been taken."
     }
     ```
   
-**Delete Country**
+**Delete Region**
 ----
-  Delete a given country.
+  Delete a given region.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries/{id}</a>
+  <a href="">/api/v1/regions/{id}</a>
 
 * **Method:**
 
@@ -161,6 +156,6 @@ APIs related to managing regions.
     ```json 
     {
         "Status": true,
-        "Message": "Country successfully delete." 
+        "Message": "Region successfully delete." 
     }
     ```
