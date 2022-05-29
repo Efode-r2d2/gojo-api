@@ -21,27 +21,25 @@ APIs related to managing property types.
     ```json 
     {
         "Status": true,
-        "Countries": [
+        "Property_Types": [
             {
-                "id": 2,
-                "country_name": "Djibouti",
-                "capital_city": "Djibouti",
-                "telephone_code": "252",
-                "country_code": "DJ",
-                "created_at": "2022-05-21T04:04:42.000000Z",
-                "updated_at": "2022-05-21T04:06:09.000000Z"
+                "id": 1,
+                "property_type_name": "Condo",
+                "property_type_code": "P12",
+                "created_at": "2022-05-28T19:41:05.000000Z",
+                "updated_at": "2022-05-28T19:41:05.000000Z"
             }
         ]
     }
     ```
 
-**Register Country**
+**Register Property Type**
 ----
-  Register a country using country_name, capital_city, telephone_code and country code as required parameters.
+  Register Property Type using property_type_name and property_type_code as required parameters.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries</a>
+  <a href="">/api/v1/property_types</a>
 
 * **Method:**
 
@@ -50,10 +48,8 @@ APIs related to managing property types.
 *  **Form Params**
 
    ***Required:***
-    - `country_name=[string]`
-    - `capital_city=[string]`
-    - `telephone_code=[string]`
-    - `country_code=[string]`
+    - `property_type_name=[string]`
+    - `property_type_code=[string]`
 
 * **Success Response:**
 
@@ -62,7 +58,7 @@ APIs related to managing property types.
     ```json 
     {
         "Status": true,
-        "Message": "Country successfully registered." 
+        "Message": "Property Type successfully registered." 
     }
     ```
  
@@ -73,7 +69,7 @@ APIs related to managing property types.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name field is required."
+        "Error": "The property_type_name field is required."
     }
     ```
 
@@ -84,17 +80,17 @@ APIs related to managing property types.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name has already been taken."
+        "Error": "The property_type_name has already been taken."
     }
     ```
 
-**Show Country**
+**Show Property Type**
 ----
-  Show info of a given country.
+  Show info of a given property type.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries/{id}</a>
+  <a href="">/api/v1/property_types/{id}</a>
 
 * **Method:**
 
@@ -107,26 +103,24 @@ APIs related to managing property types.
     ***Content:*** 
     ```json 
     {
-      "Status": true,
-      "Country": {
-          "id": 4,
-          "country_name": "Ethiopia",
-          "capital_city": "Addis Ababa",
-          "telephone_code": "251",
-          "country_code": "ET",
-          "created_at": "2022-05-22T09:04:22.000000Z",
-          "updated_at": "2022-05-22T09:04:22.000000Z"
-      }
+        "Status": true,
+        "Property_Type": {
+            "id": 1,
+            "property_type_name": "Condo",
+            "property_type_code": "P12",
+            "created_at": "2022-05-28T19:41:05.000000Z",
+            "updated_at": "2022-05-28T19:41:05.000000Z"
+        }
     }
     ```
 
-**Update Country**
+**Update Property Type**
 ----
-  Update country information.
+  Update property type information.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries/{id}</a>
+  <a href="">/api/v1/property_types/{id}</a>
 
 * **Method:**
 
@@ -135,10 +129,8 @@ APIs related to managing property types.
 *  **Form Params**
 
    ***Required:***
-    - `country_name=[string]`
-    - `capital_city=[string]`
-    - `telephone_code=[string]`
-    - `country_code=[string]`
+    - `property_type_name=[string]`
+    - `property_type_code=[string]`
 
 * **Success Response:**
 
@@ -147,7 +139,7 @@ APIs related to managing property types.
     ```json 
     {
         "Status": true,
-        "Message": "Country info successfully updated." 
+        "Message": "Property Type info successfully updated." 
     }
     ```
  
@@ -158,7 +150,7 @@ APIs related to managing property types.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name field is required."
+        "Error": "The property_type_name field is required."
     }
     ```
 
@@ -169,17 +161,17 @@ APIs related to managing property types.
     ```json 
     {
         "Status": false,
-        "Error": "The country_name has already been taken."
+        "Error": "The property_type_name has already been taken."
     }
     ```
   
-**Delete Country**
+**Delete Property Type**
 ----
-  Delete a given country.
+  Delete a given property type.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries/{id}</a>
+  <a href="">/api/v1/property_types/{id}</a>
 
 * **Method:**
 
@@ -193,6 +185,6 @@ APIs related to managing property types.
     ```json 
     {
         "Status": true,
-        "Message": "Country successfully deleted." 
+        "Message": "Property type successfully deleted." 
     }
     ```
