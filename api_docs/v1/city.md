@@ -84,6 +84,37 @@ APIs related to managing cities.
     }
     ```
 
+**Show City**
+----
+  Show info of a given city.
+
+* **API Endpoint**
+
+  <a href="">/api/v1/cities/{id}</a>
+
+* **Method:**
+
+  `GET`
+  
+
+* **Success Response:**
+
+  * ***Code:*** 200 <br />
+    ***Content:*** 
+    ```json 
+    {
+      "Status": true,
+      "City": {
+          "id": 1,
+          "city_name": "Addis Ababa",
+          "region": 3,
+          "city_code": "AA",
+          "created_at": "2022-05-27T18:12:36.000000Z",
+          "updated_at": "2022-05-27T18:12:36.000000Z"
+      }
+    }
+    ```
+
 **Update City**
 ----
   Update city information.
@@ -135,13 +166,13 @@ APIs related to managing cities.
     }
     ```
   
-**Delete Country**
+**Delete City**
 ----
   Delete a given city.
 
 * **API Endpoint**
 
-  <a href="">/api/v1/countries/{id}</a>
+  <a href="">/api/v1/cities/{id}</a>
 
 * **Method:**
 
@@ -155,6 +186,6 @@ APIs related to managing cities.
     ```json 
     {
         "Status": true,
-        "Message": "Country successfully delete." 
+        "Message": "City successfully deleted." 
     }
     ```

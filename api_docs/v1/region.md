@@ -87,7 +87,7 @@ APIs related to managing regions.
 
 **Show Region**
 ----
-  Delete a given region.
+  Get info of a given region.
 
 * **API Endpoint**
 

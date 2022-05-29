@@ -161,6 +161,6 @@ APIs related to managing country information.
     ```json 
     {
         "Status": true,
-        "Message": "Country successfully delete." 
+        "Message": "Country successfully deleted." 
     }
     ```
