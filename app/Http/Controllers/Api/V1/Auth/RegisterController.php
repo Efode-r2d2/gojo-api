@@ -11,9 +11,21 @@ use App\Models\User;
 class RegisterController extends Controller
 {
     /**
+     * * @OAS\SecurityScheme(
+     *  securityScheme="bearerAuth",
+     *  type="http",
+     *  scheme="bearer"
+     *  ) 
+     * 
+     *
+ *      @OAS\Get(
+ *
+ *   security={{"bearerAuth":{}}})
+ * 
+     * 
      * @OA\Post(
      ** path="/api/v1/auth/register",
-     *   tags={"Register User"},
+     *   tags={"Authentication"},
      *   summary="Register user using name, phone_number and password as required parameters and email as an optional paramter.",
      *   operationId="register",
      *

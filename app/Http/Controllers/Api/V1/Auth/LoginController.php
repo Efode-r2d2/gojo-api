@@ -10,7 +10,44 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    //
+    /**
+    * 
+    * @OA\Post(
+    *   path="/api/v1/auth/login",
+    *   tags={"Authentication"},
+    *   summary="Login using phone_number and password.",
+    *   operationId="login",
+    *
+    *  @OA\Parameter(
+    *      name="phone_number",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Parameter(
+    *      name="password",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function login(LoginPostRequest $request){
         /**
          * Extracting required credentials
