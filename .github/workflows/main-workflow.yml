@@ -25,15 +25,20 @@ jobs:
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
-      run: |
-        mkdir -p database
-        touch database/home_app.sqlite
+    - uses: mirromutth/mysql-action@v1.1
+    - with:
+        host port: 3306 # Optional, default value is 3306. The port of host
+        container port: 3306 # Optional, default value is 3306. The port of container
+        character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
+        collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
+        mysql version: '8.0' # Optional, default value is "latest". The version of the MySQL
+        mysql database: 'home_app' # Optional, default value is "test". The specified database which will be create
+        mysql root password: 'Root1234!' # Required if "mysql user" is empty, default is empty. The root superuser password
+        mysql user: 'root' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
+        mysql password: 'Root1234!' # Required if "mysql user" exists. The password for the "mysql user"
     - name: Migrate Database
       run: php artisan migrate
     - name: Generate Swagger Documentation
       run: php artisan l5-swagger:generate
     - name: Execute tests (Unit and Feature tests) via PHPUnit
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
