@@ -27,7 +27,7 @@ jobs:
     - name: Create Database
       run: |
         mkdir -p database
-        touch database/database.sqlite
+        touch database/home_app.sqlite
     - name: Migrate Database
       run: php artisan migrate
     - name: Generate Swagger Documentation
