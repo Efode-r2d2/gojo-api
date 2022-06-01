@@ -28,6 +28,8 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
+    - name: Nigrate Database
+      run: php artisan migrate
     - name: Generate Swagger Documentation
       run: php artisan l5-swagger:generate
     - name: Execute tests (Unit and Feature tests) via PHPUnit
