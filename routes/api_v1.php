@@ -25,7 +25,7 @@ Route::apiResource('user', UserController::class);
 /*
  * API endpoints related to authentication
 */
-Route::group(['prefix'=>'auth'], function(){
+Route::group(['prefix'=>'auth', ['middleware'=>'auth:api']], function(){
     Route::post('/register', [RegisterController::class, 'register']);
     Route::post('/login', [LoginController::class, 'login']);
 });
