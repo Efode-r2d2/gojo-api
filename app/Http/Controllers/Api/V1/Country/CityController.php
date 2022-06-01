@@ -11,10 +11,37 @@ use App\Models\City;
 class CityController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Get(
+    *   path="/api/v1/regions/{region-id}/cities",
+    *   tags={"Manage Cities"},
+    *   summary="List cities under a given region.",
+    *   operationId="list-cities",
+    *
+    *  @OA\Parameter(
+    *      description="Country ID in the database",
+    *      name="region-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=401,
+    *      description="Unauthorized"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function index($region)
     {
         // return all cities belongs to a given region

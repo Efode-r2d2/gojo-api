@@ -97,12 +97,44 @@
                 }
             }
         },
+        "/api/v1/regions/{region-id}/cities": {
+            "get": {
+                "tags": [
+                    "Manage Cities"
+                ],
+                "summary": "List cities under a given region.",
+                "operationId": "list-cities",
+                "parameters": [
+                    {
+                        "name": "region-id",
+                        "in": "path",
+                        "description": "Country ID in the database",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            }
+        },
         "/api/v1/countries/": {
             "get": {
                 "tags": [
                     "Manage Countries"
                 ],
-                "summary": "Login using phone_number and password.",
+                "summary": "List available countries.",
                 "operationId": "list-countries",
                 "responses": {
                     "200": {

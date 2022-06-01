@@ -16,7 +16,7 @@ class CountryController extends Controller
     * @OA\Get(
     *   path="/api/v1/countries/",
     *   tags={"Manage Countries"},
-    *   summary="Login using phone_number and password.",
+    *   summary="List available countries.",
     *   operationId="list-countries",
     *
     *   @OA\Response(
