@@ -24,9 +24,11 @@ class LoginController extends Controller
                 'Status'=>false,
                 'Error'=>'Invalid login credentials!'], 401);
         }
+
         /**
          * Return user information and access_token on a successfull login
          */
+
         $access_token = Auth::user()->createToken('accessToken')->accessToken;
         return response()->json(["Status"=>true,"User"=>Auth::user(),"Access_Token"=>$access_token]);
     }

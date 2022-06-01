@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Http\Requests\Country\CountryStoreRequest;
 use App\Http\Requests\Country\CountryPutRequest;
+use App\Http\Resources\CountryResource;
 
 class CountryController extends Controller
 {
@@ -17,7 +18,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        return response()->json(['Status'=>true, 'Countries'=>Country::all()]);
+        return response()->json(['Status'=>true, 'Countries'=>CountryResource::collection(Country::all())]);
     }
 
     /**
@@ -46,7 +47,8 @@ class CountryController extends Controller
     public function show($id)
     {
         //
-        return response()->json(['Status'=>true, 'Country'=>Country::find($id)]);
+        $country = new CountryResource(Country::find($id));
+        return response()->json(['Status'=>true, 'Country'=>$country]);
     }
 
     /**

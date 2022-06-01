@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Country\RegionPostRequest;
 use App\Http\Requests\Country\RegionPutRequest;
 use App\Models\Region;
+use App\Http\Resources\RegionResource;
 
 class RegionController extends Controller
 {
@@ -19,7 +20,7 @@ class RegionController extends Controller
     {
         // get all regions for a given country
         $regions = Region::where('country', '=', $country)->get();
-        return response()->json(['Status'=>true,'Regions'=>$regions]);
+        return response()->json(['Status'=>true,'Regions'=>RegionResource::collection($regions)]);
     }
 
     /**
@@ -51,10 +52,8 @@ class RegionController extends Controller
     public function show($id)
     {
         //
-        return response()->json([
-            'Status'=>true,
-            'Region'=>Region::findOrFail($id)
-        ]);
+        $region = new RegionResource(Region::findOrFail($id));
+        return response()->json(['Status'=>true, 'Region'=>$region]);
     }
 
     /**
