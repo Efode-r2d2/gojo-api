@@ -28,7 +28,7 @@ class RegionController extends Controller
     *           type="integer",
     *           format="int64"
     *      )
-    *   )
+    *   ),
     *   @OA\Response(
     *      response=200,
     *      description="Success"
