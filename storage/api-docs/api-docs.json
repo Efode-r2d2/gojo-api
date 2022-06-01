@@ -104,9 +104,27 @@
                 ],
                 "summary": "Login using phone_number and password.",
                 "operationId": "list-countries",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Manage Countries"
+                ],
+                "summary": "Create country using country_name, capital_city, telephone_code and country_code.",
+                "operationId": "store-country",
                 "parameters": [
                     {
-                        "name": "phone_number",
+                        "name": "country_name",
                         "in": "query",
                         "required": true,
                         "schema": {
@@ -114,7 +132,23 @@
                         }
                     },
                     {
-                        "name": "password",
+                        "name": "capital_city",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "telephone_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_code",
                         "in": "query",
                         "required": true,
                         "schema": {
@@ -126,8 +160,132 @@
                     "200": {
                         "description": "Success"
                     },
-                    "401": {
-                        "description": "Unauthorized"
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/countries/{id}": {
+            "get": {
+                "tags": [
+                    "Manage Countries"
+                ],
+                "summary": "Get an info of a country with a given ID.",
+                "operationId": "show-country",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Country ID in the database",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Manage Countries"
+                ],
+                "summary": "Update a country with a given ID.",
+                "operationId": "update-country",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Country ID in the database",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "country_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "capital_city",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "telephone_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Manage Countries"
+                ],
+                "summary": "Delete a country with a given ID.",
+                "operationId": "delete-country",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Country ID in the database",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
                     },
                     "404": {
                         "description": "API endpoint not found"

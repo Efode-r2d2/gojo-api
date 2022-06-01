@@ -19,22 +19,6 @@ class CountryController extends Controller
     *   summary="Login using phone_number and password.",
     *   operationId="list-countries",
     *
-    *  @OA\Parameter(
-    *      name="phone_number",
-    *      in="query",
-    *      required=true,
-    *      @OA\Schema(
-    *           type="string"
-    *      )
-    *   ),
-    *   @OA\Parameter(
-    *      name="password",
-    *      in="query",
-    *      required=true,
-    *      @OA\Schema(
-    *           type="string"
-    *      )
-    *   ),
     *   @OA\Response(
     *      response=200,
     *      description="Success"
@@ -55,11 +39,59 @@ class CountryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Post(
+    *   path="/api/v1/countries/",
+    *   tags={"Manage Countries"},
+    *   summary="Create country using country_name, capital_city, telephone_code and country_code.",
+    *   operationId="store-country",
+    *
+    *  @OA\Parameter(
+    *      name="country_name",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="capital_city",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="telephone_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="country_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function store(CountryStoreRequest $request)
     {
         Country::create([
@@ -72,11 +104,37 @@ class CountryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Get(
+    *   path="/api/v1/countries/{id}",
+    *   tags={"Manage Countries"},
+    *   summary="Get an info of a country with a given ID.",
+    *   operationId="show-country",
+    *
+    *  @OA\Parameter(
+    *      description="Country ID in the database",
+    *      name="id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function show($id)
     {
         //
@@ -85,12 +143,69 @@ class CountryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Put(
+    *   path="/api/v1/countries/{id}",
+    *   tags={"Manage Countries"},
+    *   summary="Update a country with a given ID.",
+    *   operationId="update-country",
+    *
+    *  @OA\Parameter(
+    *      description="Country ID in the database",
+    *      name="id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="country_name",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="capital_city",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="telephone_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="country_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function update(CountryPutRequest $request, $id)
     {
         //
@@ -105,11 +220,37 @@ class CountryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Delete(
+    *   path="/api/v1/countries/{id}",
+    *   tags={"Manage Countries"},
+    *   summary="Delete a country with a given ID.",
+    *   operationId="delete-country",
+    *
+    *  @OA\Parameter(
+    *      description="Country ID in the database",
+    *      name="id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function destroy($id)
     {
         //
