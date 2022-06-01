@@ -34,8 +34,8 @@
                     "200": {
                         "description": "Success"
                     },
-                    "422": {
-                        "description": "Unprocessable content"
+                    "401": {
+                        "description": "Unauthorized"
                     },
                     "404": {
                         "description": "API endpoint not found"
@@ -96,6 +96,44 @@
                     }
                 }
             }
+        },
+        "/api/v1/countries/": {
+            "get": {
+                "tags": [
+                    "Manage Countries"
+                ],
+                "summary": "Login using phone_number and password.",
+                "operationId": "list-countries",
+                "parameters": [
+                    {
+                        "name": "phone_number",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            }
         }
     },
     "security": {
@@ -106,9 +144,9 @@
             "scheme": "https",
             "flows": {
                 "password": {
-                    "authorizationUrl": "http://home-app-api.test/oauth/authorize",
-                    "tokenUrl": "http://home-app-api.test/oauth/token",
-                    "refreshUrl": "http://home-app-api.test/token/refresh",
+                    "authorizationUrl": "http://gojo-api.test/oauth/authorize",
+                    "tokenUrl": "http://gojo-api.test/oauth/token",
+                    "refreshUrl": "http://gojo-api.test/token/refresh",
                     "scopes": []
                 }
             }

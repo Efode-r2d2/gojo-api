@@ -12,10 +12,43 @@ use App\Http\Resources\CountryResource;
 class CountryController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Get(
+    *   path="/api/v1/countries/",
+    *   tags={"Manage Countries"},
+    *   summary="Login using phone_number and password.",
+    *   operationId="list-countries",
+    *
+    *  @OA\Parameter(
+    *      name="phone_number",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Parameter(
+    *      name="password",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=401,
+    *      description="Unauthorized"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function index()
     {
         return response()->json(['Status'=>true, 'Countries'=>CountryResource::collection(Country::all())]);

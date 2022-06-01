@@ -39,8 +39,8 @@ class LoginController extends Controller
     *      description="Success"
     *   ),
     *   @OA\Response(
-    *      response=422,
-    *      description="Unprocessable content"
+    *      response=401,
+    *      description="Unauthorized"
     *   ),
     *   @OA\Response(
     *      response=404,
