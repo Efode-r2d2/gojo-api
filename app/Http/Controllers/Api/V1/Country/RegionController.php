@@ -12,10 +12,37 @@ use App\Http\Resources\RegionResource;
 class RegionController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Get(
+    *   path="/api/v1/countries/{country-id}/regions",
+    *   tags={"Manage Regions"},
+    *   summary="List regions under a given country.",
+    *   operationId="list-regions",
+    *
+    *  @OA\Parameter(
+    *      description="Country ID in the database",
+    *      name="country-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=401,
+    *      description="Unauthorized"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function index($country)
     {
         // get all regions for a given country
