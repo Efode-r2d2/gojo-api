@@ -16,7 +16,7 @@ class AuthTest extends TestCase
         $userInfo = [
             "name" => "John Doe",
             "email" => "doe@example.com",
-            "phone_number" => "0932111112",
+            "phone_number" => "0932111113",
             "password" => "demo12345"
         ];
 
@@ -28,8 +28,8 @@ class AuthTest extends TestCase
      * Test logging into the system
      */
     public function test_login(){
-        $userData = [
-            "phone_number" => "0932111112",
+        $userInfo = [
+            "phone_number" => "0932111113",
             "password" => "demo12345"
         ];
 
