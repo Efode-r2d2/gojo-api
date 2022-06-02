@@ -13,15 +13,27 @@ class AuthTest extends TestCase
      */
     public function test_register(){
 
-        $userData = [
+        $userInfo = [
             "name" => "John Doe",
             "email" => "doe@example.com",
             "phone_number" => "0932111112",
             "password" => "demo12345"
         ];
 
-        $this->postJson('api/v1/auth/register', $userData, ['Accept' => 'application/json'])
+        $this->postJson('api/v1/auth/register', $userInfo, ['Accept' => 'application/json'])
             ->assertStatus(200)
             ->assertJson(['Status'=>true,"Message"=>"User successfully registered."]);
+    }
+    /**
+     * Test logging into the system
+     */
+    public function test_login(){
+        $userData = [
+            "phone_number" => "0932111112",
+            "password" => "demo12345"
+        ];
+
+        $this->postJson('api/v1/auth/login', $userInfo, ['Accept' => 'application/json'])
+            ->assertStatus(200);
     }
 }
