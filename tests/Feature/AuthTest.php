@@ -13,27 +13,40 @@ class AuthTest extends TestCase
      */
     public function test_register(){
 
-        $userInfo = [
+        $user_info = [
             "name" => "John Doe",
             "email" => "doe@example.com",
-            "phone_number" => "0932111113",
+            "phone_number" => "0932111114",
             "password" => "demo12345"
         ];
 
-        $this->postJson('api/v1/auth/register', $userInfo, ['Accept' => 'application/json'])
+        $this->postJson('api/v1/auth/register', $user_info, ["Accept" => "application/json"])
             ->assertStatus(200)
             ->assertJson(['Status'=>true,"Message"=>"User successfully registered."]);
     }
+    
+    /**
+     * Test invalid phone number
+     */
+    public function test_phone_validation(){
+        $user_info = [
+            "phone_number" => "091234",
+            "password" => "demo12345" 
+        ];
+        $this->postJson('api/v1/auth/login', $user_info, ["Accept" => "application/json"])
+            ->assertStatus(422);
+    }
+
     /**
      * Test logging into the system
      */
     public function test_login(){
-        $userInfo = [
-            "phone_number" => "0932111113",
+        $user_info = [
+            "phone_number" => "0932111114",
             "password" => "demo12345"
         ];
 
-        $this->postJson('api/v1/auth/login', $userInfo, ['Accept' => 'application/json'])
+        $this->postJson("api/v1/auth/login", $user_info, ["Accept" => "application/json"])
             ->assertStatus(200);
     }
 }
