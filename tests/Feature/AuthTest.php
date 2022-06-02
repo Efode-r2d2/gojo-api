@@ -28,12 +28,26 @@ class AuthTest extends TestCase
     /**
      * Test invalid phone number
      */
-    public function test_phone_validation(){
+    public function test_login_phone_validation(){
         $user_info = [
             "phone_number" => "091234",
             "password" => "demo12345" 
         ];
-        $this->postJson('api/v1/auth/login', $user_info, ["Accept" => "application/json"])
+        
+        $this->postJson("api/v1/auth/login", $user_info, ["Accept" => "application/json"])
+            ->assertStatus(422);
+    }
+
+    /**
+     * Test invalid password
+     */
+    public function test_login_invalid_password(){
+        $user_info = [
+            "phone_number" => "0932111114",
+            "password" => ""
+        ];
+
+        $this->postJson("api/v1/auth/login", $user_info, ["Accept" => "application/json"])
             ->assertStatus(422);
     }
 
