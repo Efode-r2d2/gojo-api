@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
+    
     /**
      * Test registering a user
      */
@@ -33,7 +34,7 @@ class AuthTest extends TestCase
             "phone_number" => "091234",
             "password" => "demo12345" 
         ];
-        
+
         $this->postJson("api/v1/auth/login", $user_info, ["Accept" => "application/json"])
             ->assertStatus(422);
     }

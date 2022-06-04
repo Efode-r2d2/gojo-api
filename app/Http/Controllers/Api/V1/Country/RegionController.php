@@ -51,11 +51,53 @@ class RegionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Post(
+    *   path="/api/v1/countries/{country-id}/regions",
+    *   tags={"Manage Regions"},
+    *   summary="Create region using region_name and region_code.",
+    *   operationId="store-region",
+    *
+    *  @OA\Parameter(
+    *      description="ID of the country.",
+    *      name="country-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="region_name",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="region_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function store(RegionPostRequest $request, $country)
     {
         //
@@ -71,11 +113,37 @@ class RegionController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Get(
+    *   path="/api/v1/regions/{region-id}",
+    *   tags={"Manage Regions"},
+    *   summary="Show a given region.",
+    *   operationId="show-region",
+    *
+    *  @OA\Parameter(
+    *      description="ID of the region.",
+    *      name="region-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function show($id)
     {
         //

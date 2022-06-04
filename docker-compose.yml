@@ -1,0 +1,37 @@
+version: "3"
+
+networks:
+  gojo:
+
+services:
+
+  ngnix:
+
+    image: ngnix:stable-alpine
+    container_name: gojo-webserver
+    ports:
+      -"8088:80"
+    volumes:
+      -./src:/var/www/gojo-api
+    depends_on:
+      -php
+      -mysql
+
+    networks:
+      -gojo
+
+  mysql:
+
+    image: mysql:8.0.29
+    container_name: gojo-database
+    restart: unless-stopped
+    tty: true
+    ports:
+      -"4306:3036"
+    networks:
+      -gojo
+
+  php:
+
+    networks:
+      -gojo
