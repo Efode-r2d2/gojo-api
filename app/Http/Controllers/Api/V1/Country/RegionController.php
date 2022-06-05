@@ -85,7 +85,7 @@ class RegionController extends Controller
     *      )
     *   ),
     *   @OA\Response(
-    *      response=200,
+    *      response=201,
     *      description="Success"
     *   ),
     *   @OA\Response(
@@ -152,12 +152,53 @@ class RegionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Put(
+    *   path="/api/v1/regions/{region-id}",
+    *   tags={"Manage Regions"},
+    *   summary="Update region_name and region_code of a given region.",
+    *   operationId="update-region",
+    *
+    *  @OA\Parameter(
+    *      description="ID of the region.",
+    *      name="region-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="region_name",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="region_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function update(RegionPutRequest $request, $id)
     {
         //
@@ -172,11 +213,37 @@ class RegionController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Delete(
+    *   path="/api/v1/regions/{region-id}",
+    *   tags={"Manage Regions"},
+    *   summary="Delete a given region.",
+    *   operationId="delete-region",
+    *
+    *  @OA\Parameter(
+    *      description="ID of the region.",
+    *      name="region-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function destroy($id)
     {
         //
