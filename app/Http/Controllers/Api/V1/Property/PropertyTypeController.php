@@ -11,10 +11,27 @@ use App\Models\PropertyType;
 class PropertyTypeController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Get(
+    *   path="/api/v1/property_types/",
+    *   tags={"Manage Property Types"},
+    *   summary="List available property types.",
+    *   operationId="list-property-types",
+    *
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=401,
+    *      description="Unauthorized"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function index()
     {
         //
@@ -22,11 +39,43 @@ class PropertyTypeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Post(
+    *   path="/api/v1/property_types/",
+    *   tags={"Manage Property Types"},
+    *   summary="Create property type using property_type_name and property_type_code.",
+    *   operationId="store-property-type",
+    *
+    *  @OA\Parameter(
+    *      name="property_type_name",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="property_type_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=201,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function store(PropertyTypePostRequest $request)
     {
         /**
@@ -43,11 +92,36 @@ class PropertyTypeController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Get(
+    *   path="/api/v1/property_types/{id}",
+    *   tags={"Manage Property Types"},
+    *   summary="Get all the necessary info of a given property type.",
+    *   operationId="show-property-type",
+    *
+    *  @OA\Parameter(
+    *      name="id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function show($id)
     {
         //
@@ -55,12 +129,52 @@ class PropertyTypeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Put(
+    *   path="/api/v1/property_types/",
+    *   tags={"Manage Property Types"},
+    *   summary="Update property_type_name and property_type_code of a given property type.",
+    *   operationId="update-property-type",
+    *
+    *  @OA\Parameter(
+    *      name="id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="property_type_name",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="property_type_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function update(PropertyTypePutRequest $request, $id)
     {
         //
@@ -72,11 +186,36 @@ class PropertyTypeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Delete(
+    *   path="/api/v1/property_types/{id}",
+    *   tags={"Manage Property Types"},
+    *   summary="Delete a given property type.",
+    *   operationId="delete-property-type",
+    *
+    *  @OA\Parameter(
+    *      name="id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function destroy($id)
     {
         //

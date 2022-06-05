@@ -661,6 +661,167 @@
                     }
                 }
             }
+        },
+        "/api/v1/property_types/": {
+            "get": {
+                "tags": [
+                    "Manage Property Types"
+                ],
+                "summary": "List available property types.",
+                "operationId": "list-property-types",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Manage Property Types"
+                ],
+                "summary": "Update property_type_name and property_type_code of a given property type.",
+                "operationId": "update-property-type",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "property_type_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "property_type_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Manage Property Types"
+                ],
+                "summary": "Create property type using property_type_name and property_type_code.",
+                "operationId": "store-property-type",
+                "parameters": [
+                    {
+                        "name": "property_type_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "property_type_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/property_types/{id}": {
+            "get": {
+                "tags": [
+                    "Manage Property Types"
+                ],
+                "summary": "Get all the necessary info of a given property type.",
+                "operationId": "show-property-type",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Manage Property Types"
+                ],
+                "summary": "Delete a given property type.",
+                "operationId": "delete-property-type",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            }
         }
     },
     "security": {
