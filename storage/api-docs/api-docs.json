@@ -127,6 +127,157 @@
                         "description": "API endpoint not found"
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "Manage Cities"
+                ],
+                "summary": "Create a city using city_name and city code.",
+                "operationId": "store-city",
+                "parameters": [
+                    {
+                        "name": "region-id",
+                        "in": "path",
+                        "description": "ID of the region.",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "city_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            }
+        },
+        "/api/v1/cities/{city-id}": {
+            "get": {
+                "tags": [
+                    "Manage Cities"
+                ],
+                "summary": "Get all the necessary info of a given city.",
+                "operationId": "show-city",
+                "parameters": [
+                    {
+                        "name": "city-id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Manage Cities"
+                ],
+                "summary": "Update city_name and city_code of a given city.",
+                "operationId": "update-city",
+                "parameters": [
+                    {
+                        "name": "city-id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "city_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Manage Cities"
+                ],
+                "summary": "Delete a given city.",
+                "operationId": "delete-city",
+                "parameters": [
+                    {
+                        "name": "city-id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "404": {
+                        "description": "API endpoint not found"
+                    }
+                }
             }
         },
         "/api/v1/countries/": {

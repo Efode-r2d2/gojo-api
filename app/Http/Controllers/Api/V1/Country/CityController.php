@@ -50,11 +50,53 @@ class CityController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Post(
+    *   path="/api/v1/regions/{region-id}/cities",
+    *   tags={"Manage Cities"},
+    *   summary="Create a city using city_name and city code.",
+    *   operationId="store-city",
+    *
+    *  @OA\Parameter(
+    *      description="ID of the region.",
+    *      name="region-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="city_name",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="city_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=201,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function store(CityPostRequest $request, $region)
     {   
         // create city
@@ -68,11 +110,36 @@ class CityController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Get(
+    *   path="/api/v1/cities/{city-id}",
+    *   tags={"Manage Cities"},
+    *   summary="Get all the necessary info of a given city.",
+    *   operationId="show-city",
+    *
+    *  @OA\Parameter(
+    *      name="city-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function show($city)
     {
         // return details of a given city
@@ -80,12 +147,52 @@ class CityController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Put(
+    *   path="/api/v1/cities/{city-id}",
+    *   tags={"Manage Cities"},
+    *   summary="Update city_name and city_code of a given city.",
+    *   operationId="update-city",
+    *
+    *  @OA\Parameter(
+    *      name="city-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="city_name",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *  @OA\Parameter(
+    *      name="city_code",
+    *      in="query",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="string"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function update(CityPutRequest $request, $city)
     {
         //update city info
@@ -98,11 +205,36 @@ class CityController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * 
+    * @OA\Delete(
+    *   path="/api/v1/cities/{city-id}",
+    *   tags={"Manage Cities"},
+    *   summary="Delete a given city.",
+    *   operationId="delete-city",
+    *
+    *  @OA\Parameter(
+    *      name="city-id",
+    *      in="path",
+    *      required=true,
+    *      @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *      )
+    *   ),
+    *   @OA\Response(
+    *      response=200,
+    *      description="Success"
+    *   ),
+    *   @OA\Response(
+    *      response=422,
+    *      description="Unprocessable Content"
+    *   ),
+    *   @OA\Response(
+    *      response=404,
+    *      description="API endpoint not found"
+    *   ),
+    *)
+    **/
     public function destroy($city)
     {
         // delete a given city
