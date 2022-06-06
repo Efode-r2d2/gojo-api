@@ -32,17 +32,17 @@ Route::group(['prefix'=>'auth', ['middleware'=>'auth:api']], function(){
 /**
  * API endpoints realted to managing countries, regions and cities
 */
-Route::apiResource('countries', CountryController::class);
+Route::apiResource('countries', CountryController::class)->middleware(['auth:api']);
 /**
  * API endpoints related to managing regions of a given country
  */
-Route::apiResource('countries.regions', RegionController::class)->shallow();
+Route::apiResource('countries.regions', RegionController::class)->shallow()->middleware(['auth:api']);
 /**
  * API endpoints related to managing cities under a given region
  */
-Route::apiResource('regions.cities', CityController::class)->shallow();
+Route::apiResource('regions.cities', CityController::class)->shallow()->middleware(['auth:api']);
 /**
  * API endpoints realted to managing property types
  */
-Route::apiResource('property_types', PropertyTypeController::class);
+Route::apiResource('property_types', PropertyTypeController::class)->middleware(['auth:api']);
 
