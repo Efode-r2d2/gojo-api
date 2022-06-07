@@ -17,7 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('property_title');
             $table->string('property_description');
-            $table->foreignId('user')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('property_type')->references('id')->on('property_types')->onDelete('cascade');
+            $table->decimal('price');
+            $table->tinyInteger('status');
+            $table->decimal('latitude')->nullable();
+            $table->decimal('longitude')->nullable();
             $table->timestamps();
         });
     }

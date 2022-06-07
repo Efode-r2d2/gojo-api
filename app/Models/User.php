@@ -42,4 +42,11 @@ class User extends Authenticatable
     protected $casts = [
         'phone_number_verified_at' => 'datetime',
     ];
+
+    /**
+     * One to many relationship with property table
+     */
+    public function properties(){
+        return $this->hasMany(Property::class);
+    }
 }
