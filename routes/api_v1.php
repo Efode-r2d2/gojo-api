@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\Country\CountryController;
 use App\Http\Controllers\Api\V1\Country\RegionController;
 use App\Http\Controllers\Api\V1\Country\CityController;
 use App\Http\Controllers\Api\V1\Property\PropertyTypeController;
+use App\Http\Controllers\Api\V1\Property\PropertyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,4 +46,8 @@ Route::apiResource('regions.cities', CityController::class)->shallow()->middlewa
  * API endpoints realted to managing property types
  */
 Route::apiResource('property_types', PropertyTypeController::class)->middleware(['auth:api']);
+/**
+ * API endpoints related to managing properties
+ */
+Route::apiResource('properties', PropertyController::class)->middleware(['auth:api']);
 
