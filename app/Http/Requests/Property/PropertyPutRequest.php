@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Property;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class PropertyPutRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class PropertyPutRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +26,17 @@ class PropertyPutRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'property_title'=>'required|string|max:255',
+            'property_description'=>'string',
+            'property_type_id'=>'required|numeric',
+            'price'=>'required' 
         ];
+    }
+
+    /**
+     * When validation fails
+     */
+    protected function failedValidation(Validator $validator) {
+        throw new HttpResponseException(response(["Status"=>false,"Error"=>$validator->errors()->first()], 422));
     }
 }

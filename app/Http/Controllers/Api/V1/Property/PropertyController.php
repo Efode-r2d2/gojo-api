@@ -120,6 +120,17 @@ class PropertyController extends Controller
     public function store(PropertyPostRequest $request)
     {
         //
+        Property::create([
+            'property_title'=>$request->property_title,
+            'property_description'=>$request->property_description,
+            'user_id'=>Auth::user()->id,
+            'property_type_id'=>$request->property_type_id,
+            'price'=>$request->price,
+            'status'=>false,
+            'latitude'=>$request->latitude,
+            'longitude'=>$request->longitude
+        ]);
+        return response()->json(['Status'=>true, "Message"=>'Property successfully registered.']);
     }
 
     /**
@@ -129,8 +140,9 @@ class PropertyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $property = new PropertyResource(Property::find($id));
+        return response()->json(['Status'=>true, 'Property'=>$property]);
     }
 
     /**
@@ -140,9 +152,18 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PropertyPutRequest $request, $id)
     {
         //
+        Property::find($id)->update([
+            'property_title'=>$request->property_title,
+            'property_description'=>$request->property_description,
+            'property_type_id'=>$request->property_type_id,
+            'price'=>$request->price,
+            'latitude'=>$request->latitude,
+            'longitude'=>$request->longitude
+        ]);
+        return response()->json(['Status'=>true, 'Message'=>'Property updated successfully.']);
     }
 
     /**
@@ -154,5 +175,7 @@ class PropertyController extends Controller
     public function destroy($id)
     {
         //
+        Property::find($id)->delete();
+        return response()->json(['Status'=>true, 'Message'=>'Property deleted successfully.']);
     }
 }

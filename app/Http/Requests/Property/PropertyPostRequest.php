@@ -28,8 +28,8 @@ class PropertyPostRequest extends FormRequest
         return [
             'property_title'=>'required|string|max:255',
             'property_description'=>'string',
-            'user_id'=>'required|numeric|exists:users',
-            'property_type_id'=>'required|numeric|exists:property_types',
+            'user_id'=>'required|numeric',
+            'property_type_id'=>'required|numeric',
             'price'=>'required' 
         ];
     }

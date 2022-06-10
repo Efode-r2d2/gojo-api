@@ -15,7 +15,7 @@ class Property extends Model
         'property_title',
         'property_description',
         'user_id',
-        'property_type',
+        'property_type_id',
         'price',
         'status',
         'latitude',
