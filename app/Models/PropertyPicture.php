@@ -15,7 +15,8 @@ class PropertyPicture extends Model
     protected $fillable = [
         'property_picture_path',
         'property_picture_title',
-        'property_picture_description'
+        'property_picture_description',
+        'property_id'
     ];
     /**
      * Relationship with Property model

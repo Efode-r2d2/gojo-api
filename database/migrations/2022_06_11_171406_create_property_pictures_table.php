@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->mediumText('property_picture_path');
             $table->string('property_picture_title')->nullable();
-            $table->midiumText('property_picture_description')->nullable();
+            $table->mediumText('property_picture_description')->nullable();
+            $table->foreignId('property_id')->references('id')->on('properties');
             $table->timestamps();
         });
     }

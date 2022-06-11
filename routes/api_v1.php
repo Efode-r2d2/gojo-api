@@ -54,5 +54,5 @@ Route::apiResource('properties', PropertyController::class)->middleware(['auth:a
 /**
  * API endpoints related to managing propery pictures
  */
-Route::apiResource('properies.property_pictures', PropertyPictureController::class)->shallow()->middleware(['auth:api']);
+Route::apiResource('properties.property_pictures', PropertyPictureController::class)->shallow()->middleware(['auth:api']);
 
