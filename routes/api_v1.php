@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\V1\Country\RegionController;
 use App\Http\Controllers\Api\V1\Country\CityController;
 use App\Http\Controllers\Api\V1\Property\PropertyTypeController;
 use App\Http\Controllers\Api\V1\Property\PropertyController;
+use App\Http\Controllers\Api\V1\Property\PropertyPictureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +51,8 @@ Route::apiResource('property_types', PropertyTypeController::class)->middleware(
  * API endpoints related to managing properties
  */
 Route::apiResource('properties', PropertyController::class)->middleware(['auth:api']);
+/**
+ * API endpoints related to managing propery pictures
+ */
+Route::apiResource('properies.property_pictures', PropertyPictureController::class)->shallow()->middleware(['auth:api']);
 

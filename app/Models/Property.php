@@ -28,4 +28,10 @@ class Property extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    /**
+     * Relationship with PropertyPicture
+     */
+    public function propertyPictures(){
+        return $this->hasMany(PropertyPictures::class);
+    }
 }
