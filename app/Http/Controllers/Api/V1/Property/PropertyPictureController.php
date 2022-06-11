@@ -14,7 +14,7 @@ class PropertyPictureController extends Controller
      */
     public function index()
     {
-        //
+        //test
     }
 
     /**
